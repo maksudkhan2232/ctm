@@ -49,7 +49,7 @@ class Database {
 	#-#############################################
 	# desc: connect and select database using vars above
 	# Param: $new_link can force connect() to open a new link, even if mysql_connect() was called before with the same parameters
-	function connectmaksud($new_link=false) {
+	function connectctm($new_link=false) {
 	    $this->link_id=mysqli_connect($this->server,$this->user,$this->pass,$this->database);
 		if (!$this->link_id) {//open failed
 			$this->oops("Could not connect to server: <b>$this->server</b>.");

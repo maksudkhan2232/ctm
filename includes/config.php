@@ -7,20 +7,12 @@ define('SITE','http://'.$_SERVER['HTTP_HOST'].'/ctm/');  //url
 define('ROOT_PATH',''.$_SERVER['DOCUMENT_ROOT'].'/ctm/'); //physical path
 define('UPLOAD_FOLDER',''.ROOT_PATH.'uploaded/');
 //-------------admin----------------
-define('ADMIN_SITE',''.SITE.'admin/');  //admin url
-define('TICKET_SITE',''.SITE.'ticketbook/');
+define('ADMIN_SITE',''.SITE.'administrator/');  //admin url
+define('BOXOFFICE_SITE',''.SITE.'boxoffice/');
 define('SITE_DASHBOARD',''.SITE.'dashboard/');
 define('MAX_FILE_SIZE', 1500240); //max 1 MB file size
-define('WEB_BASE', 'upd' );
-define('UPLOADS_URL', 'https://'.$_SERVER['HTTP_HOST'].'/ctm/'.WEB_BASE );
-$inactive = 42000;
-if(isset($_SESSION['timeout']) ) {
-     $session_life = time() - $_SESSION['timeout'];
-     if($session_life > $inactive) {
-         header("Location: ".SITE."logout.php");
-     }
-}
-$_SESSION['timeout'] = time();
+
+
 require("mysql.inc.php");
 $sql_host = "localhost";
 $sql_db = "ctm";
@@ -28,7 +20,12 @@ $sql_user = "root";
 $sql_pass = "";
 if(!isset($db)){
 	$db = new Database($sql_host, $sql_user, $sql_pass, $sql_db);
-	$db->connectmaksud();
+	$db->connectctm();
 }
 require('functions.inc.php');
+$menuname =  basename($_SERVER['PHP_SELF']);
+$menuheadname =  basename($_SERVER['PHP_SELF']);
+$title = "Cinema Software";
+$description = "Cinema Software";
+$author = "Cinema Software";
 ?>

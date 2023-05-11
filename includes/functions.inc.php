@@ -1,6 +1,6 @@
 <?php
-function isAdminLoggedIn() {
-    if(!isset($_SESSION['suraj_admin_id']) && $_SESSION['suraj_module_rights']=='') {
+function isLoggedIn() {
+    if(!isset($_SESSION['user_session_id']) && $_SESSION['user_session_right']=='') {
         header('location:' . SITE . 'index.php');
     }
 }

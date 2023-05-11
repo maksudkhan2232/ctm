@@ -17,7 +17,7 @@ $menuname =  basename($_SERVER['PHP_SELF']);
             </div>
         </div>                                                                        
     </li>
-    <?php if($_SESSION['suraj_admin_right']=='admin'){ ?>
+    <?php if($_SESSION['user_session_right']=='admin'){ ?>
         <li <?php if($menuname=='dashboard.php'){ echo 'class="active"'; }?> >
             <a href=<?php echo SITE_DASHBOARD.'dashboard.php';?> >
                 <span class="fa fa-desktop"></span> 
@@ -91,7 +91,7 @@ $menuname =  basename($_SERVER['PHP_SELF']);
             </a>
         </li>
     <?php } ?>
-    <?php if($_SESSION['suraj_admin_right']=='ticketwindow'){ ?>
+    <?php if($_SESSION['user_session_right']=='ticketwindow'){ ?>
         <li <?php if($menuname=='ticketbook.php' || $menuname=='screenchart.php'){ echo 'class="active"'; }?> ><a href=<?php echo TICKET_SITE.'ticketbook.php';?> ><span class="fa fa-ticket"></span>Ticket Booking</a></li>
         
         <li <?php if($menuname=='assignshowlist.php' || $menuname=='assignshow.php' || $menuname=='editassignshow.php'){ echo 'class="active"'; }?> >

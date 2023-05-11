@@ -1,7 +1,14 @@
 <?php
 include("includes/config.php");
-if(isset($_SESSION['suraj_admin_id']) && isset($_SESSION['suraj_super_admin'])){
-    header('location:welcome.php');
+if(isset($_SESSION['user_session_id']) && isset($_SESSION['user_session_right'])){
+    if($_SESSION['user_session_right']=="administrator"){
+        header('location:'.ADMIN_SITE.'dashboard.php');    
+    }elseif($_SESSION['user_session_right']=="boxoffice"){
+        header('location:'.BOXOFFICE_SITE.'dashboard.php');    
+    }else{
+         header('location:'.SITE.'logout.php');    
+    } 
+
 }
 if(isset($_POST['login'])) {
     $msg ='';
@@ -14,21 +21,26 @@ if(isset($_POST['login'])) {
         $msg .= '<p class="inv-em alert alert-danger"><span class="icon-warning"></span><strong>Opps Error !</strong> Please enter password.<a class="close" data-dismiss="alert" href="#" aria-hidden="true"></a></p>';
     }
     if($msg =='') {
-            $sql="SELECT * FROM suraj_member WHERE is_delete='0' and member_email = '".addSlashesForDB($username)."' AND member_password = '".addSlashesForDB(md5($password))."'";
+            $sql="SELECT * FROM user WHERE isdelete='0' and email = '".addSlashesForDB($username)."' AND password = '".addSlashesForDB(md5($password))."'";
             $result = $db->query($sql);
             if(!empty($result)){
                 $res_count = $db->nums();
                 if($res_count != '0') {
                     $row = $db->fetch_array($result);
-                if($row['member_status'] == 'Inactive') {
-
+                if($row['status']=='0') {
                     $msg .= '<p class="inv-em alert alert-danger"><span class="icon-warning"></span><strong>Opps Error !</strong> Access denied! Please contact administrator.<a class="close" data-dismiss="alert" href="#" aria-hidden="true"></a></p>';
                 }else {
-                    $_SESSION['suraj_admin_id'] = $row['member_id'];
-                    $_SESSION['suraj_admin_name'] = $row['member_name'];
-                    $_SESSION['suraj_admin_right'] = $row['member_module_rights'];
-                    if($row['member_module_rights']!=''){
-                        header('location:'.SITE_DASHBOARD.'dashboard.php');
+                    $_SESSION['user_session_id'] = $row['id'];
+                    $_SESSION['user_session_name'] = $row['name'];
+                    $_SESSION['user_session_right'] = $row['module_rights'];
+                    if($row['module_rights']!=''){
+                        if($_SESSION['user_session_right']=="administrator"){
+                            header('location:'.ADMIN_SITE.'dashboard.php');    
+                        }elseif($_SESSION['user_session_right']=="boxoffice"){
+                            header('location:'.BOXOFFICE_SITE.'dashboard.php');    
+                        }else{
+                             header('location:'.SITE.'index.php');    
+                        } 
                     }
                 }
             }else{
@@ -44,10 +56,10 @@ if(isset($_POST['login'])) {
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Login Page | </title>
+    <title>Login Page | <?php echo $title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=""/>
-    <meta name="author" content="Coderthemes"  />
+    <meta name="description" content="<?php echo $description;?>"/>
+    <meta name="author" content="<?php echo $author;?>"  />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo SITE;?>assets/images/favicon.ico">
@@ -75,7 +87,7 @@ if(isset($_POST['login'])) {
                                     </span>
                                 </a>                                
                             </div>
-                            <form action="" class="p-2">
+                            <form action="" class="p-2" method="post">
                                 <div class="form-group">
                                     <label for="username">User Name</label>
                                     <input class="form-control" type="text" id="username" name="username"  placeholder="" required="">
