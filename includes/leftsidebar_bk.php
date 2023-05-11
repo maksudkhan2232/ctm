@@ -5,14 +5,14 @@ $menuname =  basename($_SERVER['PHP_SELF']);
 <ul class="x-navigation">
     <li class="xn-profile" style="background-color:#18778b;">
         <a href="#" class="profile-mini">
-            <img src="<?php echo SITE;?>img/logo.png" alt="Suraj Cineplex"/>
+            <img src="<?php echo SITE;?>img/logo.png" alt=""/>
         </a>
         <div class="profile">
             <div class="profile-image" >
                 <img src="<?php echo SITE;?>img/suracineplexlogo.png" height="135px" style="width:205px;background-color: #ffffff;" />
             </div>
             <div class="profile-data">
-                <div class="profile-data-name"><?php echo $_SESSION['suraj_admin_name'];?></div>
+                <div class="profile-data-name"><?php echo $_SESSION['user_session_name'];?></div>
                <!--  <div class="profile-data-title">Adminstrator</div> -->
             </div>
         </div>                                                                        
@@ -113,13 +113,6 @@ $menuname =  basename($_SERVER['PHP_SELF']);
         <li>
             <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></span>Log Out</a>
         </li>
-        <!-- <li><br /><h3 style="margin-left:10px;color:#FFFFFF;line-height:28px;color:#FFFF66;"><center>Today's Collection <br /> 
-        
-            <?php
-                $select_all_twelstream = $db->query_first('SELECT SUM(ticket_book_total_rs) as total FROM  suraj_movie_ticket_book WHERE is_delete="0" and ticket_book_entrydate="'.date('Y-m-d').'"');
-                echo $select_all_twelstream['total'];
-                ?>
-        </center> 
-        </h3></li> -->
+       
     <?php } ?>
 </ul>          

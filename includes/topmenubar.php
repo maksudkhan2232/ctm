@@ -26,6 +26,10 @@
                     <div class="dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Welcome !</h6>
                     </div>
+                    <a href=<?php echo ADMIN_SITE.'userlist.php';?> title="User Manage" class="dropdown-item notify-item">
+                        <i class="mdi mdi-user"></i>
+                        User Manage
+                    </a>
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="mdi mdi-account-outline"></i>
                         <span>Profile</span>
@@ -34,6 +38,11 @@
                         <i class="mdi mdi-lock-outline"></i>
                         <span>Lock Screen</span>
                     </a>
+                    <a href=<?php echo ADMIN_SITE.'backup-data.php';?> title="Backup" class="dropdown-item notify-item">
+                        <i class="mdi mdi-download"></i>
+                        <span>Backup</span>
+                    </a>
+               
                     <div class="dropdown-divider"></div>
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="mdi mdi-logout-variant"></i>
@@ -63,21 +72,16 @@
                         <i class="ti-home"></i>Dashboard                                    
                     </a>                                
                 </li>
-               <!--  <li <?php if($menuname=='userlist.php' || $menuname=='user_addedit.php'){ echo 'class="active"'; }?> >
-                    <a href=<?php echo ADMIN_SITE.'userlist.php';?> title="User Manage">
-                        <i class="ti-user"></i>
-                        User Manage
-                    </a>
-                </li>                
-                <li <?php if($menuname=='movielist.php' || $menuname=='movie_addedit.php'){ echo 'class="active"'; }?> >
-                    <a href=<?php echo ADMIN_SITE.'movielist.php';?> title="Movie Manage">
-                        <i class="fa fa-video-camera"></i>
+                              
+                <li class="has-submenu <?php if($menuname=='movie_list.php' || $menuname=='movie_addedit.php'){ echo 'active'; }?>">
+                    <a href=<?php echo ADMIN_SITE.'movie_list.php';?> title="Movie Manage" >
+                        <i class="ti-video-camera"></i>
                         Movie Manage
                     </a>
-                </li> -->
+                </li>
                
-               <!--  <li class="has-submenu">
-                    <a href="#"> <i class="ti-files"></i>Screen</a>
+                <li class="has-submenu">
+                    <a href="#"> <i class="mdi mdi-flip-horizontal"></i>Screen Manage</a>
                     <ul class="submenu">
                         <li><a href="<?php echo ADMIN_SITE.'screenlist.php';?>">Screen Manage</a></li>
                         <li><a href="<?php echo ADMIN_SITE.'screenchartlist.php';?>">Screen Chart</a></li>
@@ -87,51 +91,26 @@
                 <li class="has-submenu">
                     <a href="#"> <i class="ti-spray"></i>Show Manage </a>
                     <ul class="submenu">
-                        <li><a href="ui-elements.html">Movie Show Name</a></li>
-                        <li><a href="typography.html">Assign Show </a></li>
-                        <li><a href="charts.html">Cancle Show </a></li>
-                        <li><a href="maps.html"> Freeze / Release </a></li>
+                        <li><a href="<?php echo ADMIN_SITE.'movieshowlist.php';?>">Movie Show Name</a></li>
+                        <li><a href="<?php echo ADMIN_SITE.'assignshowlist.php';?>">Assign Show </a></li>
+                        <li><a href="<?php echo ADMIN_SITE.'cancleshow.php';?>">Cancle Show </a></li>
+                        <li><a href="<?php echo ADMIN_SITE.'freezelist.php';?>"> Freeze / Release </a></li>
                     </ul>
-                </li> -->
-               <!--  <li <?php if($menuname=='movieshowlist.php' || $menuname=='addmovieshow.php'){ echo 'class="active"'; }?>  class="has-submenu">
-                    <a href=<?php echo ADMIN_SITE.'movieshowlist.php';?> title="Movie Show">
-                        <span class="glyphicon glyphicon-sound-dolby">
-                        </span>
-                        <span class="xn-text">Movie Show</span>
-                    </a>
-                </li>
-                <li <?php if($menuname=='assignshowlist.php' || $menuname=='assignshow.php' || $menuname=='editassignshow.php'){ echo 'class="active"'; }?> class="has-submenu" >
-                    <a href=<?php echo ADMIN_SITE.'assignshowlist.php';?> title="Assign Show" >
-                        <span class="fa fa-film"></span>
-                        <span class="xn-text">Assign Show</span>
-                    </a>
-                </li>
-                <li <?php if($menuname=='freezelist.php' || $menuname=='freezviewscreenchart.php' || $menuname=='freezeadd.php'  || $menuname=='releaseadd.php'){ echo 'class="active"'; }?> >
-                    <a href=<?php echo ADMIN_SITE.'freezelist.php';?> title="Freeze / Release" >
-                        <span class="fa fa-lock"></span>
-                        <span class="xn-text">Freeze / Release</span>
-                    </a>
-                </li>
-                
-                <li <?php if($menuname=='ticketbook.php' || $menuname=='screenchart.php'){ echo 'class="active"'; }?> class="has-submenu" >
-                    <a href=<?php echo TICKET_SITE.'ticketbook.php';?> title="Ticket Booking" >
-                        <span class="fa fa-ticket"></span>
+                </li>               
+               <li <?php if($menuname=='ticketbook.php' || $menuname=='screenchart.php'){ echo 'class="active"'; }?> class="has-submenu" >
+                    <a href=<?php echo BOXOFFICE_SITE.'ticketbook.php';?> title="Ticket Booking" >
+                        <!-- <i class="ti-ticket"></i> -->
                         <span class="xn-text">Ticket Booking</span>
                     </a>
-                </li>
+                </li> 
                 
-                <li <?php if($menuname=='cancleshow.php' || $menuname=='addcancleshow.php'){ echo 'class="active"'; }?> class="has-submenu" >
-                    <a href=<?php echo ADMIN_SITE.'cancleshow.php';?> title="Cancle Show">
-                        <span class="fa fa-times"></span>
-                        <span class="xn-text">Cancle Show</span>
-                    </a>
-                </li>
-                <li class="xn-openable<?php if($menuname=='dailysummeryreport.php' || $menuname=='viewdailysummery.php' || $menuname=='dailyreport.php' || $menuname=='viewdailyreport.php'){ echo 'active'; }?>" class="has-submenu">
+               
+                <li class="has-submenu">
                     <a href="javascript:void(0)" title="Report">
                         <span class="fa fa-list"></span>
                         <span class="xn-text">Report</span>
                     </a>
-                    <ul>
+                    <ul class="submenu">
                         <li <?php if($menuname=='dailysummeryreport.php' || $menuname=='viewdailysummery.php'){ echo 'class="active"'; }?> >
                             <a href=<?php  echo SITE.'report/dailysummeryreport.php';?> title="Daily Collection  Report">
                                 <span class="fa fa-table"></span>
@@ -146,48 +125,6 @@
                         </li>
 
                     </ul> 
-                </li> 
-                
-                <li <?php if($menuname=='daywisesaleticketlist.php'){ echo 'class="active"'; }?> >
-                    <a href=<?php echo TICKET_SITE.'daywisesaleticketlist.php';?> >
-                        <span class="fa fa-book"></span>
-                        <span class="xn-text">
-                            Price Not Update Ticket List
-                        </span>
-                    </a>
-                </li> 
-                <li <?php if($menuname=='yearbackup.php'){ echo 'class="active"'; }?> ><a href=<?php echo SITE.'yearwise/yearbackup.php';?> ><span class="fa fa-upload"></span>Year Wise Show</a></li>
-                <li <?php if($menuname=='backup-data.php'){ echo 'class="active"'; }?> >
-                    <a href=<?php echo ADMIN_SITE.'backup-data.php';?> title="Backup" >
-                        <span class="fa fa-download"></span>
-                        <span class="xn-text">Backup</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="mb-control" data-box="#mb-signout">
-                        <span class="fa fa-sign-out"></span>
-                        <span class="xn-text">Log Out</span>
-                    </a>
-                </li>      -->   
-                <li class="has-submenu">
-                    <a href="#"> <i class="ti-widget"></i>Extra Pages </a>
-                    <ul class="submenu">
-                        <li><a href="extras-timeline.html">Timeline</a></li>
-                        <li><a href="extras-invoice.html">Invoice</a></li>
-                        <li><a href="extras-profile.html">Profile</a></li>
-                        <li><a href="extras-calendar.html">Calendar</a></li>
-                        <li><a href="extras-faqs.html">FAQs</a></li>
-                        <li><a href="extras-pricing.html">Pricing</a></li>
-                        <li><a href="extras-contacts.html">Contacts</a></li>
-                    </ul>
-                </li>
-
-                <li class="has-submenu">
-                    <a href="#"> <i class="mdi mdi-flip-horizontal"></i>Layouts</a>
-                    <ul class="submenu">
-                        <li><a href="layouts-vertical.html">Vertical Layout</a></li>
-                        <li><a href="layouts-topbar-dark.html">Topbar Dark</a></li>
-                    </ul>
                 </li>
             </ul>
             <!-- End navigation menu -->
