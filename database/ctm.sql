@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 12:18 PM
+-- Generation Time: May 12, 2023 at 03:23 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -30,8 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `movie` (
   `id` int(11) NOT NULL,
   `name` varchar(150) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `duration` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `duration` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT 'Total Minute',
   `release_date` date DEFAULT NULL,
+  `hours` int(11) NOT NULL,
+  `minute` int(11) NOT NULL,
   `runing_time` int(11) DEFAULT 1,
   `status` tinyint(4) NOT NULL,
   `isdelete` int(11) NOT NULL,
@@ -45,16 +47,15 @@ CREATE TABLE `movie` (
 -- Dumping data for table `movie`
 --
 
-INSERT INTO `movie` (`id`, `name`, `duration`, `release_date`, `runing_time`, `status`, `isdelete`, `created_datetime`, `modified_datetime`, `created_ip`, `created_by`) VALUES
-(448, 'KISI KA BHAI KISI KI JAAN U/A', '3 Hours 1 minute', '2023-04-28', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(449, 'SHUBHYATRA U/A', '3 Hours 1 minute', '2023-04-28', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(450, 'PONNIYIN SELVAN 2 U/A', '3 Hours 1 minute', '2023-04-28', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(451, 'BAD BOY U/A', '3 Hours 1 minute', '2023-04-28', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(452, 'KISI KA BHAI KISI KI JAAN U/A', '3 Hours 1 minute', '2023-05-05', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(453, 'SHUBHYATRA U/A', '3 Hours 1 minute', '2023-05-05', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(454, 'BUSHIRT-TSHIRT U', '1 Hours 1 minute', '2023-05-05', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(455, 'THE KERALA STORY A', '3 Hours 1 minute', '2023-05-05', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0),
-(456, 'GUARDIANS OF THE GALAXY VOL.3 U/A', '3 Hours 1 minute', '2023-05-05', 1, 127, 0, '0000-00-00 00:00:00', NULL, '', 0);
+INSERT INTO `movie` (`id`, `name`, `duration`, `release_date`, `hours`, `minute`, `runing_time`, `status`, `isdelete`, `created_datetime`, `modified_datetime`, `created_ip`, `created_by`) VALUES
+(448, 'KISI KA BHAI KISI KI JAAN U/A', '3 Hours 1 minute', '2023-04-28', 0, 0, 1, 1, 0, '0000-00-00 00:00:00', NULL, '', 0),
+(450, 'PONNIYIN SELVAN 2 U/A', '3 Hours 1 minute', '2023-04-28', 0, 0, 1, 1, 0, '0000-00-00 00:00:00', NULL, '', 0),
+(451, 'BAD BOY U/A', '3 Hours 1 minute', '2023-04-28', 0, 0, 1, 1, 0, '0000-00-00 00:00:00', NULL, '', 0),
+(452, 'KISI KA BHAI KISI KI JAAN U/A', '3 Hours 1 minute', '2023-05-05', 0, 0, 1, 1, 0, '0000-00-00 00:00:00', NULL, '', 0),
+(454, 'BUSHIRT-TSHIRT U', '1 Hours 1 minute', '2023-05-05', 0, 0, 1, 1, 0, '0000-00-00 00:00:00', NULL, '', 0),
+(455, 'THE KERALA STORY A', '3 Hours 1 minute', '2023-05-05', 0, 0, 1, 1, 0, '0000-00-00 00:00:00', NULL, '', 0),
+(456, 'GUARDIANS OF THE GALAXY VOL.3 U/A', '3 Hours 1 minute', '2023-05-05', 0, 0, 1, 1, 0, '0000-00-00 00:00:00', NULL, '', 0),
+(457, 'Fatafats', '168', '2023-05-13', 2, 48, 6, 1, 0, '2023-05-12 18:51:24', NULL, '::1', 1);
 
 -- --------------------------------------------------------
 
@@ -3358,7 +3359,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=457;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=458;
 
 --
 -- AUTO_INCREMENT for table `movie_show`
