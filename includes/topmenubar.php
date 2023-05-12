@@ -73,7 +73,7 @@
                     </a>                                
                 </li>
                               
-                <li class="has-submenu <?php if($menuname=='movie_list.php' || $menuname=='movie_addedit.php'){ echo 'active'; }?>">
+                <li class="has-submenu <?php if($menuname=='movie_list.php' || $menuname=='movie_add.php' || $menuname=='movie_edit.php'){ echo 'active'; }?>">
                     <a href=<?php echo ADMIN_SITE.'movie_list.php';?> title="Movie Manage" >
                         <i class="ti-video-camera"></i>
                         Movie Manage
